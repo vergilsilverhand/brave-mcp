@@ -1,0 +1,63 @@
+{
+  "name": "brave-search-mcp",
+  "type": "module",
+  "version": "0.6.2",
+  "description": "MCP Server that uses Brave Search API to search for images, general web search, video, news and points of interest.",
+  "author": "mike.chao.one@gmail.com",
+  "license": "GPL-3.0-or-later",
+  "homepage": "https://github.com/mikechao/brave-search-mcp",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mikechao/brave-search-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mikechao/brave-search-mcp/issues"
+  },
+  "keywords": [
+    "brave",
+    "mcp",
+    "web-search",
+    "image-search",
+    "news-search",
+    "brave-search-api",
+    "brave-search",
+    "brave-search-mcp"
+  ],
+  "main": "dist/index.js",
+  "bin": {
+    "brave-search-mcp": "dist/index.js"
+  },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "dist"
+  ],
+  "scripts": {
+    "clean": "shx rm -rf dist && shx mkdir dist",
+    "build": "npm run clean && tsc && shx chmod +x dist/*.js",
+    "build:watch": "tsc --sourceMap -p tsconfig.json -w",
+    "prepare": "npm run build",
+    "lint": "eslint . --ext .ts,.js,.mjs,.cjs --fix",
+    "lint:check": "eslint . --ext .ts,.js,.mjs,.cjs",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run lint:check && npm run typecheck"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.8.0",
+    "brave-search": "^0.9.0",
+    "image-to-base64": "^2.2.0",
+    "zod": "^3.24.3"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^4.11.0",
+    "@modelcontextprotocol/inspector": "^0.10.2",
+    "@types/axios": "^0.9.36",
+    "@types/express": "^5.0.1",
+    "@types/image-to-base64": "^2.1.2",
+    "@types/node": "^22.13.14",
+    "eslint": "^9.23.0",
+    "eslint-plugin-format": "^1.0.1",
+    "shx": "^0.4.0",
+    "typescript": "^5.8.2"
+  }
+}
